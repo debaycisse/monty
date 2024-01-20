@@ -32,6 +32,7 @@ void instruction_error(int line_number, char *line_r)
 
 	sprintf(error_msg, "L%i: unknown instruction %s\n", line_number, op);
 	write(2, error_msg, strlen(error_msg));
+	free(error_msg);
 	free_stack();
 	exit(EXIT_FAILURE);
 }

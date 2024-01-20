@@ -55,6 +55,9 @@ int opcode_validator(char *op, char *arg);
 int is_push(char *opcode, char *arg);
 int is_pall(char *opcode);
 int is_pint(char *opcode);
+void pop(stack_t **stack, unsigned int line_number);
+void pop_error(int line_number);
+int is_pop(char *opcode);
 
 #endif
 

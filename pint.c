@@ -25,6 +25,19 @@ void pint_error(int line_number)
 
 	sprintf(error_msg, "L%i: can't pint, empty stack\n", line_number);
 	write(2, error_msg, strlen(error_msg));
+	free(error_msg);
 	exit(EXIT_FAILURE);
+}
+
+/**
+ * is_pint - checks if the given opcode is pint
+ * @opcode: opcode to be checked
+ * Return: 1, if a given opcode is pint, 0 otherwise
+ */
+int is_pint(char *opcode)
+{
+	if (strcmp(opcode, "pint") == 0)
+		return (1);
+	return (0);
 }
 

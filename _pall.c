@@ -19,3 +19,15 @@ void _pall(stack_t **stack, unsigned int line_number)
 	}
 }
 
+/**
+ * is_pall - checks if a given opcode is pall
+ * @opcode: opcode to be checked
+ * Return: 1, if a given opcode is pall, 0 otherwise
+ */
+int is_pall(char *opcode)
+{
+	if (strcmp(opcode, "pall") == 0)
+		return (1);
+	return (0);
+}
+
