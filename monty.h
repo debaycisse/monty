@@ -58,6 +58,10 @@ int is_pint(char *opcode);
 void pop(stack_t **stack, unsigned int line_number);
 void pop_error(int line_number);
 int is_pop(char *opcode);
+void swap(stack_t **stack, unsigned int line_number);
+void swap_error(int line_number);
+int is_swap(char *opcode);
+int stack_len(stack_t **stack);
 
 #endif
 
