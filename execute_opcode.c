@@ -11,27 +11,14 @@ void execute_opcode(char *line_r, int line_n)
 	char *line_cpy = strdup(line_r);
 	void (*opcode)(stack_t **, unsigned int);
 	unsigned int line_num_int;
-	char *check_content = strtok(line_cpy, delim);
 
-	if ((!check_content) || (strlen(check_content) < 4))
-	{
-		free(line_cpy);
-		return;
-	}
-	free(line_cpy);
-	line_cpy = NULL;
-	line_cpy = strdup(line_r);
 	op = strtok(line_cpy, delim);
 	line_num = strtok(NULL, delim);
 	opcode = get_opcode(op);
-	if (opcode == NULL)
-	{
-		if (!line_num)
-			instruction_error(line_n, line_r);
-		instruction_error(atoi(line_num), line_r);
-	}
-	if (!line_num)
-		line_num_int = 0;
+	if ((opcode == NULL) || (!line_num && strcmp(op, "push") == 0))
+		instruction_error(line_n, line_r);
+	else if (!line_num && (strcmp(op, "push") != 0))
+		line_num_int = line_n;
 	else if ((line_num != NULL) || (strcmp(line_num, "0") == 0))
 		line_num_int = (unsigned int)atoi(line_num);
 	opcode(&top, line_num_int);
@@ -47,12 +34,13 @@ void (*get_opcode(char *opcode))(stack_t **, unsigned int)
 {
 	instruction_t instructions[] = {
 		{"push", _push},
-		{"pall", _pall}
+		{"pall", _pall},
+		{"pint", pint}
 	};
 	int i;
 
 	i = 0;
-	while (i < 2)
+	while (i < 3)
 	{
 		if (strcmp(opcode, instructions[i].opcode) == 0)
 			return (instructions[i].f);

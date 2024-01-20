@@ -49,6 +49,12 @@ void _push(stack_t **stack, unsigned int line_number);
 void _pall(stack_t **stack, unsigned int line_number);
 void (*get_opcode(char *opcode))(stack_t **, unsigned int);
 void free_stack(void);
+void pint(stack_t **stack, unsigned int line_number);
+void pint_error(int line_number);
+int opcode_validator(char *op, char *arg);
+int is_push(char *opcode, char *arg);
+int is_pall(char *opcode);
+int is_pint(char *opcode);
 
 #endif
 
