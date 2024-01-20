@@ -1,34 +1,35 @@
 #include "monty.h"
 
 /**
+ * _push - pushes an item on to the stack, using LIFO
+ * @stack: pointer to a pointer that points to the top of the stack
+ * @line_number: line number (data, stored in stack), gotten from a given file
  */
-void push(stack_t **stack, unsigned int line_number)
+void _push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_item = NULL;
-	top = *stack;
+	int data = (int)line_number;
 
 	new_item = malloc(sizeof(stack_t));
 	if (new_item == NULL)
 	{
 		write(2, "Error: malloc failed\n", 22);
 		free(new_item);
-		exit(EXIT_FAILURE);	
-	}
-	if ((isdigit(atoi(line_number)) == 0) || !line_number)
-	{
-		write(2, "L<line_number>: usage: push integer", 50);
+		free_stack();
+		exit(EXIT_FAILURE);
 	}
 	new_item->n = data;
 	new_item->prev = NULL;
-	if (top == NULL)
+	if (*stack == NULL)
 	{
 		top = new_item;
 		new_item->next = NULL;
 	}
 	else
 	{
-		top->prev = (stack_s *)new_item;
-		new_item->next = (stack_s *)top;
+		top->prev = (struct stack_s *)new_item;
+		new_item->next = (struct stack_s *)top;
 		top = new_item;
 	}
 }
+

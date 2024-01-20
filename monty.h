@@ -19,9 +19,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -34,14 +34,21 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 extern stack_t *top;
-void malloc_error();
-void usage_error();
-int check_instr(char *line);
+void malloc_error(void);
+void usage_error(void);
+int is_valid_instr(char *line);
 void instruction_error(int line_number, char *line_r);
+void opening_err(char *file_name);
+void execute_opcode(char *line_r, int line_n);
+void _push(stack_t **stack, unsigned int line_number);
+void _pall(stack_t **stack, unsigned int line_number);
+void (*get_opcode(char *opcode))(stack_t **, unsigned int);
+void free_stack(void);
 
 #endif
+
