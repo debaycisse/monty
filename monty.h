@@ -62,6 +62,9 @@ void swap(stack_t **stack, unsigned int line_number);
 void swap_error(int line_number);
 int is_swap(char *opcode);
 int stack_len(stack_t **stack);
+void add_stack(stack_t **stack, unsigned int line_number);
+void add_error(int line_number);
+int is_add(char *opcode);
 
 #endif
 
