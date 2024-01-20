@@ -38,12 +38,13 @@ void (*get_opcode(char *opcode))(stack_t **, unsigned int)
 		{"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
-		{"add", add_stack}
+		{"add", add_stack},
+		{"nop", nop}
 	};
 	int i;
 
 	i = 0;
-	while (i < 6)
+	while (i < 7)
 	{
 		if (strcmp(opcode, instructions[i].opcode) == 0)
 			return (instructions[i].f);

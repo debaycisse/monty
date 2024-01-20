@@ -65,6 +65,8 @@ int stack_len(stack_t **stack);
 void add_stack(stack_t **stack, unsigned int line_number);
 void add_error(int line_number);
 int is_add(char *opcode);
+void nop(stack_t **stack, unsigned int line_number);
+int is_nop(char *opcode);
 
 #endif
 
