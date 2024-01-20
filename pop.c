@@ -48,3 +48,4 @@ int is_pop(char *opcode)
 		return (1);
 	return (0);
 }
+
