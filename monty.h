@@ -81,6 +81,8 @@ void mod_stack(stack_t **stack, unsigned int line_number);
 void mod_error(int line_number);
 void mod_by_zero_error(int line_number);
 int is_mod(char *opcode);
+void comment(stack_t **stack, unsigned int line_number);
+int is_comment(char *opcode);
 
 #endif
 
