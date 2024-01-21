@@ -52,6 +52,7 @@ void opening_err(char *file_name)
 	strcat(error_message, "\n");
 	write(2, error_message, strlen(error_message));
 	free(error_message);
+	free_stack();
 	exit(EXIT_FAILURE);
 }
 

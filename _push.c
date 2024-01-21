@@ -52,3 +52,18 @@ int is_push(char *opcode, char *arg)
 	return (0);
 }
 
+/**
+ * push_error - handles push related error
+ * @line_number: the line in a file where there is bad syntax
+ */
+void push_error(int line_number)
+{
+	char *error_msg = malloc(sizeof(char) * 28);
+
+	sprintf(error_msg, "L%i: usage: push integer\n", line_number);
+	write(2,  error_msg, strlen(error_msg));
+	free(error_msg);
+	free_stack();
+	exit(EXIT_FAILURE);
+}
+

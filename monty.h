@@ -46,6 +46,7 @@ void instruction_error(int line_number, char *line_r);
 void opening_err(char *file_name);
 void execute_opcode(char *line_r, int line_n);
 void _push(stack_t **stack, unsigned int line_number);
+void push_error(int line_number);
 void _pall(stack_t **stack, unsigned int line_number);
 void (*get_opcode(char *opcode))(stack_t **, unsigned int);
 void free_stack(void);
@@ -83,6 +84,10 @@ void mod_by_zero_error(int line_number);
 int is_mod(char *opcode);
 void comment(stack_t **stack, unsigned int line_number);
 int is_comment(char *opcode);
+void pchar(stack_t **stack, unsigned int line_number);
+void out_of_range_error(int line_number);
+void empty_stack_error(int line_number);
+int is_pchar(char *opcode);
 
 #endif
 

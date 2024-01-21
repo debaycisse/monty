@@ -39,6 +39,7 @@ void add_error(int line_number)
 	sprintf(error_msg, "L%i: can't add, stack too short\n", line_number);
 	write(2, error_msg, strlen(error_msg));
 	free(error_msg);
+	free_stack();
 	exit(EXIT_FAILURE);
 }
 
