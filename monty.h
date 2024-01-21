@@ -70,6 +70,10 @@ int is_nop(char *opcode);
 void sub_stack(stack_t **stack, unsigned int line_number);
 void sub_error(int line_number);
 int is_sub(char *opcode);
+void div_stack(stack_t **stack, unsigned int line_number);
+void div_error(int line_number);
+void div_by_zero_error(int line_number);
+int is_div(char *opcode);
 
 #endif
 
