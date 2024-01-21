@@ -41,16 +41,17 @@ int is_valid_instr(char *line)
 int opcode_validator(char *op, char *arg)
 {
 	char *opcodes[] = {
-		"push", "pall", "pint", "pop", "swap", "add", "nop"
+		"push", "pall", "pint", "pop", "swap", "add", "nop", "sub"
 	};
 	int i;
 
-	for (i = 0; i < 7; i++)
+	for (i = 0; i < 8; i++)
 	{
 		if (strcmp(opcodes[i], op) == 0)
 		{
 			if (is_push(op, arg) || is_pall(op) || is_pint(op) ||
-				is_pop(op) || is_swap(op) || is_add(op) || is_nop(op)
+				is_pop(op) || is_swap(op) || is_add(op) || is_nop(op) ||
+				is_sub(op)
 				)
 				return (1);
 		}
