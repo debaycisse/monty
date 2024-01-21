@@ -42,17 +42,17 @@ int opcode_validator(char *op, char *arg)
 {
 	char *opcodes[] = {
 		"push", "pall", "pint", "pop", "swap", "add", "nop", "sub",
-		"div", "mul"
+		"div", "mul", "mod"
 	};
 	int i;
 
-	for (i = 0; i < 10; i++)
+	for (i = 0; i < 11; i++)
 	{
 		if (strcmp(opcodes[i], op) == 0)
 		{
 			if (is_push(op, arg) || is_pall(op) || is_pint(op) ||
 				is_pop(op) || is_swap(op) || is_add(op) || is_nop(op) ||
-				is_sub(op) || is_div(op) || is_mul(op)
+				is_sub(op) || is_div(op) || is_mul(op) || is_mod(op)
 				)
 				return (1);
 		}
