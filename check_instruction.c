@@ -29,7 +29,10 @@ int is_valid_instr(char *line)
 		return (1);
 	}
 	else if ((int)opcode[0] == (int)'#')
+	{
+		free(line_cpy);
 		return (1);
+	}
 	free(line_cpy);
 	return (0);
 }
