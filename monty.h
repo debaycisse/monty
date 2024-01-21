@@ -88,6 +88,8 @@ void pchar(stack_t **stack, unsigned int line_number);
 void out_of_range_error(int line_number);
 void empty_stack_error(int line_number);
 int is_pchar(char *opcode);
+void pstr(stack_t **stack, unsigned int line_number);
+int is_pstr(char *opcode);
 
 #endif
 
