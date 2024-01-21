@@ -92,6 +92,8 @@ void pstr(stack_t **stack, unsigned int line_number);
 int is_pstr(char *opcode);
 void rotl(stack_t **stack, unsigned int line_number);
 int is_rotl(char *opcode);
+void rotr(stack_t **stack, unsigned int line_number);
+int is_rotr(char *opcode);
 
 #endif
 
