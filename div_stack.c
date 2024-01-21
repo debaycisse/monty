@@ -22,8 +22,16 @@ void div_stack(stack_t **stack, unsigned int line_number)
 		second_value = next->n;
 		if ((first_value == 0) || (second_value == 0))
 			div_by_zero_error((int) line_number);
-		first_value /= second_value;
-		next->n = first_value;
+		if (first_value > second_value)
+		{
+			first_value /= second_value;
+			next->n = first_value;
+		}
+		else
+		{
+			second_value /= first_value;
+			next->n = second_value;
+		}
 		free(top);
 		next->prev = NULL;
 		top = next;
