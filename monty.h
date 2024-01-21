@@ -90,6 +90,8 @@ void empty_stack_error(int line_number);
 int is_pchar(char *opcode);
 void pstr(stack_t **stack, unsigned int line_number);
 int is_pstr(char *opcode);
+void rotl(stack_t **stack, unsigned int line_number);
+int is_rotl(char *opcode);
 
 #endif
 
