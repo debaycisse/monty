@@ -74,6 +74,9 @@ void div_stack(stack_t **stack, unsigned int line_number);
 void div_error(int line_number);
 void div_by_zero_error(int line_number);
 int is_div(char *opcode);
+void mul_stack(stack_t **stack, unsigned int line_number);
+void mul_error(int line_number);
+int is_mul(char *opcode);
 
 #endif
 

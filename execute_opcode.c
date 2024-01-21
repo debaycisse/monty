@@ -33,20 +33,14 @@ void execute_opcode(char *line_r, int line_n)
 void (*get_opcode(char *opcode))(stack_t **, unsigned int)
 {
 	instruction_t instructions[] = {
-		{"push", _push},
-		{"pall", _pall},
-		{"pint", pint},
-		{"pop", pop},
-		{"swap", swap},
-		{"add", add_stack},
-		{"nop", nop},
-		{"sub", sub_stack},
-		{"div", div_stack}
+		{"push", _push}, {"pall", _pall}, {"pint", pint}, {"pop", pop},
+		{"swap", swap}, {"add", add_stack}, {"nop", nop}, {"sub", sub_stack},
+		{"div", div_stack}, {"mul", mul_stack}
 	};
 	int i;
 
 	i = 0;
-	while (i < 9)
+	while (i < 10)
 	{
 		if (strcmp(opcode, instructions[i].opcode) == 0)
 			return (instructions[i].f);
