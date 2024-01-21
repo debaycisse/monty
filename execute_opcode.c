@@ -47,6 +47,8 @@ void (*get_opcode(char *opcode))(stack_t **, unsigned int)
 			return (instructions[i].f);
 		i++;
 	}
+	if ((int)opcode[0] == (int)'#')
+		return (instructions[11].f);
 	return (NULL);
 }
 
